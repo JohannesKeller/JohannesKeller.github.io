@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico"> -->
+
+  <title>VUI I</title>
+
+  <!-- <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/grid/"> -->
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+<body>
+  <div class="container">
+    <div class="container">
+      <h1>VUI I: Geschenk-Finder</h1>
+    </div>
+    <hr>
+    <div class="container">
+      <h2>1. Storyboard</h2>
+      <div class="row">
+        <div class="col-md-12">
+        <p>
+          Die VUI soll dem Benutzer bei dessen Geschenksuche helfen. 
+          Durch unterschiedliche Parameter kann die passende Zeit für die Push-Benachrichtigung und die Geschenkart ermittelt werden.
+          In diesem Beispiel tätigt der Nutzer eine Suche mit dem Keyword "Weihnachtsgeschenk" auf seinem Smartphone.
+          Gleichzeitig ist das Smartphone im heimischen Wlan eingeloggt und in zwei Wochen ist Weihnachten.
+          Daraus leitet die VUI ab, dass der Nutzer auf der Last-Minute-Geschenksuche ist und schaltet sich ein.
+        </p>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-8">
+          <img src="1.png">
+        </div>
+        </div>
+      <div class="row">
+        <div class="col-md-8">
+          <img src="2.png">
+        </div>
+        <div class="col-md-4"></div>
+        </div>
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-8">
+          <img src="3.png">
+        </div>
+        </div>
+      <div class="row">
+        <div class="col-md-8">
+          <img src="4.png">
+        </div>
+        <div class="col-md-4"></div>
+        </div>
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-8">
+          <img src="5.png">
+        </div>
+        </div>
+      <div class="row">
+        <div class="col-md-8">
+          <img src="6.png">
+        </div>
+        <div class="col-md-4"></div>
+        </div>
+        </div>
+
+        <hr>
+        <div class="container">
+          <h2>2. Dialog Flow</h2>
+
+          <div class="row">
+            <div class="col-md-12">
+            <p>
+              Die VUI ist mit einem Shop verbunden. Im Fall von Alexa bietet sich Amazon an. Dort sind bereits Lieferadressen und Zahlungsmittel hinterlegt und der Shop bietet ein riesiges Sortiment unterschiedlichster Artikel.<br>
+              Die VUI frägt den Nutzer, für wen das Geschenk bestimmt ist. An dieser Stelle sind typische Personen, wie Großmutter, Vater, Freundin, Mann, Sohn, beste Freundin..., hinterlegt.
+              Für jede Person gibt es unterschiedliche Auswahlkriterien, nach denen der Nutzer befragt wird. Wurde die Suche genügend eingeschränkt, so werdem dem Nutzer eine kleine Anzahl an möglichen Artikeln präsentiert.
+
+            </p>
+          </div>
+          </div>
+     
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+          <img src="flow.png">
+        </div>
+        <div class="col-md-1"></div>
+        </div>
+     
+      </div>
+      
+    </div>
+ 
+
+  <br>
+  <br>
+  <br>
+
+</body>
+
+</html>
+
+<style>
+  body {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    background-color: #ededed;
+  }
+
+  h3 {
+    margin-top: 2rem;
+  }
+
+
+  hr {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  img {
+    width: 100%;
+  }
+</style>
