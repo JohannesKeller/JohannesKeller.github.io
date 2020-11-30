@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Playgroud Artyom</title>
+    <script src="js/libs/artyom.window.min.js"></script>
+    <script src="js/playgroud-artyom-script.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+   
+    
+    <div class="row">
+        <div class="col-md-6">
+        </div>
+        <div class="col-md-6">
+            <img src="flow.png">
+        </div>
+    </div>
+    <div class="row fixed">
+        <div class="col-md-6 fixed">
+            <div id="content">
+                <h2>VUI Prototyping - Geschenkfinder</h2>
+                <div id="button">Bitte warten...</div>
+                <h3 id="level">Level:</h3>
+                <div><h3>Mögliche Antworten:</h3><div id="antworten"></div>
+            </div>
+
+            </div>
+        </div>
+          
+        </div>
+</body>
+</html>
+
+<style>
+    div#content {
+    margin: 70px;
+}
+    body {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    background-color: #ededed;
+    /* width: 99%; */
+    
+}
+
+.col-md-6.fixed {
+    height: 500px;
+    padding: 0px 60px;
+    background-color: white;
+    /* margin: 0px 70px; */
+    /* width: 45%; */
+    position: fixed;
+}
+
+.row.fixed {
+    position: fixed;
+    top: 25%;
+}
+  
+    h3 {
+      margin-top: 2rem;
+    }
+  
+  
+    hr {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+  
+    img {
+      width: 100%;
+    }
+
+    input[type=button], input[type=submit], input[type=reset] {
+    background-color: #f5d4d2;
+    border: none;
+    color: black;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+div#button {
+    margin-top: 33px;
+}
+    
+  </style>
