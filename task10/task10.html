@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico"> -->
+
+  <title>IOT-Prototyp</title>
+
+  <!-- <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/grid/"> -->
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+<body>
+  <div class="container">
+    <div class="container">
+      <h1>IOT-Prototyp</h1>
+    </div>
+    <hr>
+    <div class="container">
+      <h2>1. Prototyp</h2>
+      <div class="row">
+        <div class="col-md-12">
+        <p>
+          Wie bereits in <a href="https://johanneskeller.github.io/task09/Task09.pdf">Task 09</a> beschrieben , soll eine
+          smarte Klingel umgesetzt werden.
+        </p>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <img src="prototyp.png">
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+        <p>
+          Der ESP32 soll hierfür mit unterschiedlichen In- und Outputs verbunden werden.
+        </p>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+        <p>
+          <b>Inputs:</b><br>
+          - Feuchtigkeits- und Temperatursensor (DHT11)<br>
+          - Bewegungsmelder (HC-SR501)<br>
+          - Fotowiederstand<br>
+          - Touch Sensor (wie von Herrn Rausch beschrieben)
+        </p>
+      </div>
+        <div class="col-md-6">
+        <p>
+          <b>Outputs:</b><br>
+          - aktiver Buzzer<br>
+          - weiße LED<br>
+          - grüne LED
+        </p>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+        <p>
+          Anschließend sollen diese In- und Outputs eingerichtet werden, sodass ihre Zustände ausgelesen werden können bzw. Zustände geändert werden können.<br>
+          Ebenfalls soll eine Netzwerkverbindung realisiert werden. Dadurch kann der ESP32 als Telegram-Bot fungieren und auf exterene Anfragen reagieren.
+        </p>
+      </div>
+      </div>
+      </div>
+
+      <hr>
+
+    <div class="container">
+      <h2>2. Verkabelung und Tests</h2>
+      <div class="row">
+        <div class="col-md-12">
+        <p>
+          Der ESP32 wurde folgendermaßen mit allen Komponenten verbunden:
+        </p>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <img src="verkabelung.png">
+      </div>
+        <div class="col-md-6">
+          <img src="verkabelung2.png">
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+        <p>
+          Der Bewegungsmelder, Buzzer und DHT11 konnten über 3 Pins verbunden werden. Jeweils einen für die Erdung, 
+          einen für die Spannung und einen, um das eigentliche Signal zu übertragen. Der DHT11 ist ein recht langsamer
+          Sensor. Daher kann es zu Verzögerungen oder kompletten Ausfällen beim Auslesen kommen. Dies musste im Code 
+          berücksichtigt werden, um ungewollte Programmabbrüche zu vermeiden. Der Bewegungsmelder verfügt über zwei
+          physische Regler. Hierüber kann geregelt werden, wie empfindlich dieser ist und wie lange das Signal bei einer
+          Bewegung aufrecht erhalten werden soll.<br>
+          Der Fotowiederstand und die LEDs wurden über zwei Pins verbunden. Ein Pin zur Erdung und einen für das eigentliche
+          Signal. Eine Ausnahme ist der Fotowiderstand. Dieser wird zwar ebenfalls über zwei Pins angesteuert, allerdings wird
+          am Pin für die Erdung noch ein Widerstand eingesetzt, wodurch die momentane Helligkeit abgeleitet werden kann.
+          Der "Touch-Sensor" wird, wie von Herrn Rausch erläutert, lediglich über einen Pin integriert.<br>
+          Alle verkabelten Komponenten wurden nun testweise im Code eingebunden, ausgelesen und angesteuert. Diese waren nun einsatzbereit.
+        </p>
+      </div>
+      </div>
+      </div>
+
+      <hr> 
+    <div class="container">
+      <h2>3. Telegram-Bot</h2>
+      <div class="row">
+        <div class="col-md-12">
+          <p>
+          Nun ging es an die Realisierung des Telegram-Bots. Vorab musste hierfür eine Internetverbindung hergestellt werden.
+          Dazu mussten zwei Bibliotheken ins Projekt integriert werden, welche den Aufbau einer WIFI-Verbindung ermöglichen.
+          Außerdem konnte auch direkt die Bibliothek "UniversalTelegramBot.h" integriert werden, welche dem ESP32 die Bot-Fähigkeiten
+          ermöglicht.<br>
+          Über unterschiedliche Telegram-Dienste ließ sich ein solcher Bot mit zugehörigem Token erstellen und auf dem ESP32 einrichten.
+          Nun war es möglich Nachrichten an den Bot zu senden. Auf diese Nachrichten kann reagiert werden, ähnlich wie es bei der VUI 
+          der Fall war. Mehr dazu wird im <a href="#video">Video</a> erklärt.
+            </p>
+        </div>
+      </div>
+      </div>
+      <hr> 
+    <div class="container">
+      <h2>4. Intelligente Klingel</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <p>
+          Die Funktionen des Telegram-Bots konnte nun mit den vorhandenen Komponenten kombiniert werden. 
+          So konnten alle gewünschten Funktionen aus <a href="https://johanneskeller.github.io/task09/Task09.pdf">Task 09</a> 
+          umgesetzt werden. Das Abfragen verschiedener Werte, Reaktionen auf Inputs und Anpassungen an Umweltbedingungen sind nun möglich.
+          Das Projekt ließe sich durch mehr Funktionen und Komponenten noch beliebig ergänzen, hätte dann allerdings den Rahmen gesprengt.
+          Zuletzt wurden das Breadboard, der ESP32 und alle Komponenten in eine Box gepackt, um der Klingel einen cleaneren Look zu verpassen.
+            </p>
+        </div>
+        <div class="col-md-6">
+          <img src="klingel.JPEG">
+        </div>
+      </div>
+      </div>
+      <hr>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <h2 id="video">Video</h2><br>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/0k9LImJAyqE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+          <div class="col-md-4">
+            <h2>Code</h2><br>
+            <a href="int_bell/int_bell.ino">Code anschauen</a><br>
+            <a href="int_bell.zip">Code downloaden</a>
+        </div>
+        </div>
+        
+        </div>
+    
+        
+       
+      
+    </div>
+ 
+
+  <br>
+  <br>
+  <br>
+
+</body>
+
+</html>
+
+<style>
+  body {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  h3 {
+    margin-top: 2rem;
+  }
+
+  p {
+    font-size: 20px;
+    margin: 20px 0px;
+}
+
+
+  hr {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  img {
+    width: 100%;
+  }
+</style>
